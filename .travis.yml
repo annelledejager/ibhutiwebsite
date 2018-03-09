@@ -15,8 +15,8 @@ jobs:
   - stage: tests againt latest docker image
     script:
       - docker-compose -f docker-compose.test.yml up --abort-on-container-exit
-   - stage: push docker image to production
-     script:
-      - docker push registry.heroku.com/infinite-hamlet-32574/web
+  - stage: push docker image to production
+    script:
+    - docker push registry.heroku.com/infinite-hamlet-32574/web
   - stage: test production
     script: 'curl https://infinite-hamlet-32574.herokuapp.com/'
