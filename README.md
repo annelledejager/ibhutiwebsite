@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/annelledejager/simple-website.svg?branch=master)](https://travis-ci.org/annelledejager/simple-website)
+[![Build Status](https://travis-ci.org/annelledejager/simple-frontend.svg?branch=master)](https://travis-ci.org/annelledejager/simple-frontend)
 
 ## Simple website
 
@@ -15,7 +15,7 @@ Follow [this](https://simple-frontend.herokuapp.com/) link.
 Clone the repository to a location of your liking. In your shell run the following commands to run the application locally. 
 
 ```
-$ cd simple-website
+$ cd simple-frontend
 $ docker-compose up
 ```
 
@@ -46,4 +46,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * **Annelle de Jager** 
 
-See also the list of [contributors](https://github.com/annelledejager/simple-website/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/annelledejager/simple-frontend/graphs/contributors) who participated in this project.
