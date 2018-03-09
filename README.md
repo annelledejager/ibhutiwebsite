@@ -2,9 +2,13 @@
 
 ## Simple website
 
-This project is a simple frontend website with basic functionality. A space to experiment and play with new technologies. 
+This project is a simple React frontend website application with basic functionality. A space to experiment and play with new technologies. 
 
-The project includes a basic React application. The production application is deployed to Heroku through Travis CI. 
+The production application is deployed to Heroku through Travis CI. 
+
+## Demo
+
+Follow [this](https://infinite-hamlet-32574.herokuapp.com/) link.
 
 ## Getting Started
 
