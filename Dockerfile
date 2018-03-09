@@ -1,12 +1,14 @@
-# Base image
-FROM node:9.5
+FROM node:6.10-alpine
 
-RUN npm install -g serve
+RUN mkdir -p /home/web
 
-COPY package.json package.json
+#COPY *.html /home/web/
+COPY public /home/web/public/
+COPY src /home/web/src/
+COPY *.json /home/web/
+
+WORKDIR "/home/web"
+
 RUN npm install
 
-COPY . .
-RUN npm run build
-
-CMD serve -p $PORT -s dist
+ENTRYPOINT npm run start

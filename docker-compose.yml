@@ -3,11 +3,11 @@ version: '3'
 services:
 
   web:
-    build:
-      image: registry.heroku.com/infinite-hamlet-32574/web:latest
-      context: .
-    volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+    build: .
+    image: registry.heroku.com/simple-frontend/web:latest
     ports:
-      - '3000:3000'
+    - "3000:3000"
+    volumes:
+    - .:/usr/src/app/:rw
+    environment:
+    - NODE_ENV=dev

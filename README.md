@@ -8,7 +8,7 @@ The production application is deployed to Heroku through Travis CI.
 
 ## Demo
 
-Follow [this](https://infinite-hamlet-32574.herokuapp.com/) link.
+Follow [this](https://simple-frontend.herokuapp.com/) link.
 
 ## Getting Started
 
