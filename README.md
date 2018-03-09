@@ -42,4 +42,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * **Annelle de Jager** 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/annelledejager/simple-website/graphs/contributors) who participated in this project.
