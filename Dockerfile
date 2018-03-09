@@ -1,20 +1,20 @@
-# Starting from one of the official node images
-FROM node:6.10-alpine
+# https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+FROM node:carbon
 
-RUN mkdir -p /home/web
+# Create app directory
+WORKDIR /usr/src/app
 
-# Copy all source files
-#COPY *.html /home/web/
-COPY public /home/web/public/
-COPY src /home/web/src/
-COPY *.json /home/web/
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
 
-WORKDIR "/home/web"
-
-# Run npm install
 RUN npm install
+# If you are building your code for production
+# RUN npm install --only=production
 
-# Sets entry point when the container starts to run the webpack dev server
-ENTRYPOINT npm run start
+# Bundle app source
+COPY . .
 
-CMD [""]
+EXPOSE 8080
+CMD [ "npm", "start" ]
