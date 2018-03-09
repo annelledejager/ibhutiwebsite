@@ -2,7 +2,7 @@
 
 ## Simple website
 
-This project is a simple React frontend website application with basic functionality. A space to experiment and play with new technologies. 
+This project is a simple React frontend application with basic functionality. A space to experiment and play with new technologies. 
 
 The production application is deployed to Heroku through Travis CI. 
 
