@@ -2,10 +2,11 @@ version: '3'
 
 services:
 
-  web:
+  test:
     build:
-      image: registry.heroku.com/infinite-hamlet-32574/web:latest
       context: .
+    image: registry.heroku.com/infinite-hamlet-32574/web:latest
+    command: # npm test
     volumes:
       - '.:/usr/src/app'
       - '/usr/src/app/node_modules'

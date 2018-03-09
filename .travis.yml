@@ -1,18 +1,22 @@
+language: generic
+
 sudo: required
 dist: trusty
 
-language: node_js
-node_js:
-- '8.0'
+services:
+  - docker
 
 jobs:
   include:
-  - stage: build
-    script: docker-compose up --build -d
-  - stage: deploy
-    script: skip
-    deploy:
-      provider: heroku
-      api_key:
-        secure: VaKg3IauWGE4MsUvTd/1jqRsQtxI6eb63dsMDToMiEJgBUn2KP/cX8D3sxl5WVD/i0m9FS7Ce8aTYqzqHxZreRiINJAUKUc51wk5PeVr1/z5FqVS0I7w12p7BdkT8T5Qr40MkkLZEye+R9GtyPY9oE/k2bM5B2xAM2juzJyWkvqRcyRWIFLVX6ZmSNVSrh4Rq03OQVg93yJCD1PgOSvhj72xpQ6hRZuT9wt/SUCwRM3MNg3nSqCUW2cmdazmxEQ5aKPd4tsJg3pRu6UzOojkE8BgNcvVnAtChp0vpUakPnaImQwvK6586x4kAuBJn3kXOBoqbhqAyQxiMHDfEvl8x4t9LE1BUoZkSj10lfEBADaeg6EhDP+2gDsbxJX1VlxIfTMzAlmoyeUbyOSrW1QAtIaZv1I/EZpKdJ6JJAZ1hLuSwArDnL2zZ83tSoo65+amYx3pjb6BARY7a+epwSerkshvpsG53OyJ9RMh9F/a/gvVpjrBfjEXBpxGV4g+td+3M4aV+NjW1HjZRSHszKCt0MA6YmPMSXPiZSLaQoZfh/IkN4OUjtEFl1hwuEEZXqMeFKDiAmbYoZV3iQIqjpDV9RmClrsIZytoKHZSdcJ+SDIxw3P4Z3VhyfKRVVOyyUYVlW3Dn9oIkLMXLCOjxxEM1pLmHGUr2mHZGEKjNNKdL34=
-      app: infinite-hamlet-32574
+  - stage: build docker image
+    script:
+      - docker login -u _ -p "$HEROKU_TOKEN" registry.heroku.com
+      - docker build -t registry.heroku.com/infinite-hamlet-32574/web .
+  - stage: tests againt latest docker image
+    script:
+      - docker-compose -f docker-compose.test.yml up --abort-on-container-exit
+   - stage: push docker image to production
+     script:
+      - docker push registry.heroku.com/infinite-hamlet-32574/web
+  - stage: test production
+    script: 'curl https://infinite-hamlet-32574.herokuapp.com/'
