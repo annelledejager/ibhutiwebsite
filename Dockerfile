@@ -16,3 +16,5 @@ RUN npm install
 
 # Sets entry point when the container starts to run the webpack dev server
 ENTRYPOINT npm run start
+
+CMD [""]
